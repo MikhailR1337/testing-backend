@@ -1,5 +1,5 @@
 export interface CreateCompanyDto {
   name: string;
-  email: string;
+  login: string;
   password: string;
 }
