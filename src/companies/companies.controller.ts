@@ -21,8 +21,8 @@ export class CompaniesController {
 
     @Post('/login')
     @HttpCode(200)
-    auth(@Body() authCompanyDto: AuthCompanyDto): string {
+    auth(@Body() authCompanyDto: AuthCompanyDto): object {
         console.log('createCompanyDto', authCompanyDto);
-        return 'success';
+        return { role: 'authCompany' };
     }
 }
