@@ -13,8 +13,7 @@ export class CandidatesController {
 
     @Post('/login')
     @HttpCode(200)
-    create(@Body() authCandidateDto: AuthCandidateDto): string {
-        console.log('authCandidateDto', authCandidateDto);
-        return 'success';
+    create(@Body() authCandidateDto: AuthCandidateDto): AuthCandidateDto {
+        return authCandidateDto;
     }
 }
