@@ -8,20 +8,20 @@ import { AuthCompanyDto } from './dto/auth-company';
 export class CompaniesController {
     constructor(private readonly companiesService: CompaniesService) {}
 
-    @Get(':companyId')
-    findOne(@Param() companyId): string {
-        return this.companiesService.findOne(companyId);
+    @Get(':login')
+    findOne(@Param() login) {
+        return this.companiesService.findOne(login);
     }
 
     @Post('/registration')
     @HttpCode(201)
-    create(@Body() createCompanyDto: CreateCompanyDto): CreateCompanyDto {
-        return createCompanyDto;
+    create(@Body() createCompanyDto: CreateCompanyDto) {
+        return this.companiesService.create(createCompanyDto);
     }
 
     @Post('/login')
     @HttpCode(200)
-    auth(@Body() authCompanyDto: AuthCompanyDto): AuthCompanyDto {
-        return authCompanyDto;
+    auth(@Body() authCompanyDto: AuthCompanyDto) {
+        return this.companiesService.auth(authCompanyDto);
     }
 }
