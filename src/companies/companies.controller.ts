@@ -14,15 +14,13 @@ export class CompaniesController {
 
     @Post('/registration')
     @HttpCode(201)
-    create(@Body() createCompanyDto: CreateCompanyDto): string {
-        console.log('createCompanyDto', createCompanyDto);
-        return 'success';
+    create(@Body() createCompanyDto: CreateCompanyDto): CreateCompanyDto {
+        return createCompanyDto;
     }
 
     @Post('/login')
     @HttpCode(200)
-    auth(@Body() authCompanyDto: AuthCompanyDto): string {
-        console.log('createCompanyDto', authCompanyDto);
-        return 'success';
+    auth(@Body() authCompanyDto: AuthCompanyDto): AuthCompanyDto {
+        return authCompanyDto;
     }
 }
