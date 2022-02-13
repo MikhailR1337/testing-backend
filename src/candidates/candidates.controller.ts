@@ -1,4 +1,5 @@
-import { Body, Controller, Get, HttpCode, Post } from '@nestjs/common';
+import { Body, Controller, HttpCode, Post } from '@nestjs/common';
+
 import { CandidatesService } from './candidates.service';
 import { AuthCandidateDto } from './dto/auth-candidate';
 
@@ -6,14 +7,9 @@ import { AuthCandidateDto } from './dto/auth-candidate';
 export class CandidatesController {
     constructor(private readonly candidatesService: CandidatesService) {}
 
-    @Get()
-    getHello(): string {
-        return this.candidatesService.getHello();
-    }
-
     @Post('/login')
     @HttpCode(200)
-    create(@Body() authCandidateDto: AuthCandidateDto): AuthCandidateDto {
-        return authCandidateDto;
+    findOne(@Body() authCandidateDto: AuthCandidateDto): AuthCandidateDto {
+        return this.candidatesService.findOne(authCandidateDto);
     }
 }
