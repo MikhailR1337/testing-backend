@@ -1,8 +1,10 @@
 import { Injectable } from '@nestjs/common';
 
+import { AuthCandidateDto } from './dto/auth-candidate';
+
 @Injectable()
 export class CandidatesService {
-    getHello(): string {
-        return 'Hello Candidate!';
+    findOne(authCandidateDto): AuthCandidateDto {
+        return authCandidateDto;
     }
 }
